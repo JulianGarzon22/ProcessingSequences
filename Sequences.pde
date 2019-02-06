@@ -1,15 +1,18 @@
 Fibonacci sFibo;
 int n;
+int i;
 
 void setup() {
-  size(640,640);
+  size(1137,640);
   sFibo = new Fibonacci();
+  background(#353b48);
 }
 
 void draw() {
-  background(#353b48);
-  
-  n = 4;
+  n = 7;
   sFibo.compute(n);
+}
+
+void mouseReleased() {
   sFibo.display(n);
 }

@@ -1,5 +1,5 @@
 class Fibonacci {
-  
+
   float compute(float n) {
     if (n == 1)
       return 0;
@@ -9,25 +9,53 @@ class Fibonacci {
       return compute(n-2) + compute(n-1);
     return -1;
   } 
-  
+
   void display(float term) {
-    int i = 1;
-    float n = 2;
+    float x = (height/compute(term))-25;
+    float r = random(255);
+    float g = random(255);
+    float b = random(255);
+    
     stroke(#f5f6fa);
     strokeWeight(5);
-    noFill();
-    translate(50,50);
-    while(i < term) {
-      float z = (width / (compute(term) + compute(term - 1))) - 100;
-      pushMatrix();
-      translate(z*compute(n-1),0);
-      rect(0,0,compute(n)*z,compute(n)*z);
-      rotate(PI/2.0);
-      popMatrix();
-      if(n <= term) {
-        n++;
-      }
-      i++;
-    }
+    
+    translate((width/2)+2*x, (height/2)+x);
+    fill(r,g,b);
+    rect(0, 0, x*compute(2), x*compute(2));
+    
+    r = random(255);
+    g = random(255);
+    b = random(255);
+    translate(-x*compute(2), 0);
+    fill(r,g,b);
+    rect(0, 0, x*compute(3), x*compute(3));
+    
+    r = random(255);
+    g = random(255);
+    b = random(255);
+    translate(0, x*compute(3));
+    fill(r,g,b);
+    rect(0, 0, x*compute(4), x*compute(4));
+    
+    r = random(255);
+    g = random(255);
+    b = random(255);
+    translate(x*compute(4), -x*compute(3));
+    fill(r,g,b);
+    rect(0, 0, x*compute(5), x*compute(5));
+    
+    r = random(255);
+    g = random(255);
+    b = random(255);
+    translate(-x*compute(4), -x*compute(6));
+    fill(r,g,b);
+    rect(0, 0, x*compute(6), x*compute(6));
+    
+    r = random(255);
+    g = random(255);
+    b = random(255);
+    translate(-x*compute(7), 0);
+    fill(r,g,b);
+    rect(0, 0, x*compute(7), x*compute(7));
   }
 }
